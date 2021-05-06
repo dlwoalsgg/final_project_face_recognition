@@ -2,13 +2,24 @@ import cv2
 import dlib
 
 from os.path import join
+from environs import Env
 
-# model_path -> basic model,
-# pass to caffemodel to test
-# prototxt -> arcitechture described
+
+def get_pypi_token() -> bytes:
+    env = Env()
+    env.read_env()
+    # a string of hexadecimal values
+    saltHexStr = bytes.fromhex(env('pypi_token'))
+
+    return saltHexStr
 
 
 def load_model(model_path, caffemodel, prototxt):
+    """
+    :model_path: -> basic model
+    :pass to caffemodel: to test
+    :prototxt: arcitechture described
+    """
     caffemodel_path = join(model_path, caffemodel)
     prototxt_path = join(model_path, prototxt)
     load_predict_model = cv2.dnn.readNet(prototxt_path, caffemodel_path)
