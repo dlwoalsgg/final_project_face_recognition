@@ -102,4 +102,11 @@ ENV/
 .mypy_cache/
 
 # IDE settings
+<<<<<<< HEAD
 .vscode/
+=======
+.vscode/
+
+#deep learning file
+final_project_face_recognition/age_prediction_data/
+>>>>>>> test1

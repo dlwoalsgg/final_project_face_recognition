@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+opencv-python = "*"
+numpy = "*"
+pandas = "*"
+boto3 = "*"
+moto = "*"
+cmake = "*"
+dlib = "==19.22.0"
+travis-encrypt = "*"
+environs = "*"
+
+[dev-packages]
+dlib = "==19.22.0"
+pytest = "*"
+pytest-cov = "*"
+cookiecutter = "*"
+flake8 = "*"
+pytest-cookies = "*"
+setuptools-scm = "*"
+
+[requires]
+python_version = "3.8"
