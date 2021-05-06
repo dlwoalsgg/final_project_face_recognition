@@ -1,13 +1,8 @@
 <<<<<<< HEAD
-Welcome to final_project_face_recognition's documentation!
-======================================
-=======
-face recognition: Age and Gender
-================================
-
-
 Detect Age and Gender to create personalized formulation
 ========================================================
+face recognition: Age and Gender
+================================
 
 here is some text.::
 
