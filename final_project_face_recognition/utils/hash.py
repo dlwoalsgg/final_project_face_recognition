@@ -1,74 +1,48 @@
-from typing import Union
-import hashlib
-from canvasapi import Canvas
-from environs import Env
-import base64
-
+from typing import AnyStr
+from hashlib import sha256
+import os
 
 
 def get_csci_salt() -> bytes:
-    env = Env()
-    env.read_env()
-    # a string of hexadecimal values
-    saltHexStr = bytes.fromhex(env('CSCI_SALT'))
-    """Returns the appropriate salt for CSCI E-29
+    """Returns the appropriate salt for CSCI E-29"""
+    # retrieve os environment variable called CSCI_SALT
+    # SALT = os.environ["CSCI_SALT"]
+    SALT = "3f87b3a5b7e48ba408964366a7194789249d4ed33b962a9e5d76c5d6122237bc"
 
-    :return: bytes representation of the CSCI salt
+    # convert hexadecimal salt to bytes equivalent and return those bytes
+    return bytes.fromhex(SALT)
+
+
+def hash_str(some_val: AnyStr, salt: AnyStr = ""):
+    """Converts strings to hash digest
+
+    :param some_val: thing to hash
+    :param salt: Add randomness to the hashing
+    :return: hash digest of input
     """
-    return saltHexStr
-    # Hint: use os.environment and bytes.fromhex
-    # raise NotImplementedError()
+    # create a SHA-256 hash object
+    h = sha256()
 
-def get_csci_pepper() -> bytes:
-    """Returns the appropriate pepper for CSCI E-29
+    # lambda function used to ensure input vars to the hash object are bytes
+    encode = lambda x: x.encode() if isinstance(x, str) else x
 
-    This is similar to the salt, but defined as the UUID of the Canvas course,
-    available from the Canvas API.
+    # feed hash object with salt bytes
+    h.update(encode(salt))
 
-    This value should never be recorded or printed.
+    # feed hash object with bytes representation of the input string
+    h.update(encode(some_val))
 
-    :return: bytes representation of the pepper
-    """
-    # env instance to retrive canvas object
-    env = Env()
-    env.read_env()
-    # Load canvas objects
-    canvas = Canvas(env('CANVAS_URL'), env('CANVAS_TOKEN'))
-
-    course = canvas.get_course(env('CANVAS_COURSE_ID'))
-    # receive uuid from coourse object
-    uuidStr = course.uuid
-    # decode a uuid string to bytes
-    uuidHex = base64.b64decode(uuidStr)
-    return uuidHex
-    #     # Hint: Use base64.b64decode to decode a UUID string to bytes
-    # raise NotImplementedError()
+    # return digest of the data fed into the hash object
+    return h.digest()
 
 
-def hash_str(some_val: Union[str, bytes], salt: Union[str, bytes] = "") -> bytes:
-    """
-    Converts strings to hash digest
-
-    See: https://en.wikipedia.org/wiki/Salt_(cryptography)
-
-    :param some_val: thing to hash, can be str or bytes
-    :param salt: Add randomness to the hashing, can be str or bytes
-    :return: sha256 hash digest of some_val with salt, type bytes
-    """
-    some_valHex = some_val
-    saltHex = salt
-    # verify whether some_val is str or hex
-    if isinstance(some_val, str):
-        some_valHex = some_val.encode()
-    # verify whether salt is str or hex
-    if isinstance(salt, str):
-        saltHex = salt.encode()
-    # concat saltHex and some val hex to return
-    concatHex = hashlib.sha256(saltHex + some_valHex).digest()
-    return concatHex
-
-
-# return type last 8 digit str
 def get_user_id(username: str) -> str:
-    salt = get_csci_salt() + get_csci_pepper()
+    """Converts username string to hash digest
+
+    :param username: string to hash
+    :return: first 8 chars in hex format of hash digest of input
+    """
+    # retrieve salt from environment variables
+    salt = get_csci_salt()
+    # compute and return hash digest of input
     return hash_str(username.lower(), salt=salt).hex()[:8]

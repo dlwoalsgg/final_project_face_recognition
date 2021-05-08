@@ -3,16 +3,8 @@ import dlib
 
 from os.path import join
 from environs import Env
-
-
-def get_pypi_token() -> bytes:
-    env = Env()
-    env.read_env()
-    # a string of hexadecimal values
-    saltHexStr = bytes.fromhex(env('pypi_token'))
-
-    return saltHexStr
-
+from utils.hash import *
+from utils.io import *
 
 def load_model(model_path, caffemodel, prototxt):
     """
@@ -35,12 +27,7 @@ def predict_func(load_predict_model, img, height, width):
     predictions = load_predict_model.forward()
     predict_result = predictions[0].argmax()
     confidence = predictions[0][predict_result]
-    print(predict_result)
-    ######
-    # if 1 > confidence > 18
-    #     print("add ")
 
-    ####
 
     return predict_result, confidence
 # predict_result -> return index of class 0= woman , 1 for man // age 1~100
@@ -77,8 +64,21 @@ print(age_input)
 # capture video
 cap = cv2.VideoCapture(0)
 
-while cap.isOpened(): # while capture open
+firstName = user_first_name
+lastName = user_last_name
+frameCount = 0
+age_actual = age_input
+age_exp = []
+age_expMean = 0
+age_diff = 0
+ingrType = ""
+
+
+
+# while cap.isOpened(): # while capture open
+while cap.isOpened():
     try:
+        frameCount += 1
         _, read_frame = cap.read()  # reading frames
 
         if read_frame is not None:  # if the frame is fine
@@ -103,6 +103,7 @@ while cap.isOpened(): # while capture open
 
                 # age different print
                 ageDiff = int(age_input) - int(age)
+                age_exp.append(int(age))
                 outStr = ""
                 if ageDiff >=0:
                     outStr = "You look " + str(ageDiff) + " years younger than actual age"
@@ -123,20 +124,97 @@ while cap.isOpened(): # while capture open
 
 
 
-        cv2.imshow('frame', read_frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+            cv2.imshow('frame', read_frame)
+            if frameCount ==30:
+                break
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
     except:
         print('Image quality do not meet qualification. Skipping frame')
 
 cap.release()
 cv2.destroyAllWindows()
 
+# print(age_exp)
+age_exp.sort()
+age_extTemp = age_exp[10:20]
+ageTempSum=0
+for i in age_extTemp:
+    ageTempSum += i
+age_expMean = ageTempSum / len(age_extTemp)
+age_expMean = round(age_expMean)
+age_diff = age_actual - age_expMean
+if age_diff <= 0:
+    ingrType = "A"
+else:
+    ingrType = "B"
 
-# def enter_age(age_input):
-#     age_input = int(input("Enter age number only"))
-#     return age_input
-#
-#
-# enter_age(cap).release()
-# cv2.destroyAllWindows()
+fullName = firstName + " " + lastName
+
+hashedName = get_user_id(fullName)
+age_actual
+age_expMean
+age_diff
+ingrType
+dataList = [hashedName, age_actual, age_expMean, age_diff, ingrType]
+
+import numpy as np
+import pandas as pd
+column_names = ["HashedName", "ActualAge", "ExpectedAge", "AgeDifference", "IngredientType"]
+currDF = pd.DataFrame(columns = column_names)
+currDF.loc[len(currDF)] = dataList
+print(currDF)
+
+
+
+# get current dir path
+dir_name = "data"
+cwd = os.getcwd()
+dataDir = os.path.join(cwd, dir_name)
+outDir = os.path.join(dataDir, "output.csv")
+print(outDir)
+currDF.to_csv(outDir, index = None)
+flag = False
+fileList = []
+# iterate dir
+for csvFile in os.listdir(dataDir):
+    # print(csvFile)
+    # case there is
+    fileList.append(csvFile)
+    # csv exist
+if "outputCumm.csv" in fileList:
+    flag = True
+print(fileList)
+if flag ==False:
+    print("outputCumm.csv NOT exists")
+    currDF.to_csv(os.path.join(dataDir, "outputCumm.csv"), index=None)
+else:
+    print("outputCumm.csv exists")
+    data_source = os.path.join(dataDir, "outputCumm.csv")
+    cummDF = pd.read_csv(data_source)
+    os.remove(data_source)
+    cummDF2 = cummDF.append(currDF, ignore_index=True)
+    with atomic_write(data_source, as_file=False, mode="wb") as tf:
+        cummDF2.to_csv(tf, index=None)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

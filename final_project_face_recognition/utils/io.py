@@ -1,51 +1,14 @@
-import os
 from contextlib import contextmanager
-from typing import ContextManager, Union
 import tempfile
+import os
+
 
 @contextmanager
-def atomic_write(
-    file: Union[str, os.PathLike], mode: str = "w", as_file: bool = True, **kwargs
-) -> ContextManager:
-    #   check if the file exists
-    if os.path.exists(file):
-        raise FileExistsError
-
-    #    flag to verify whether the conversion works
-    convertSuccess = False
-    #   try to convert file format
-    try:
-        # for extension
-        fileChuckList = os.path.splitext(file)
-        # last elem of the list is the extension
-        extension = fileChuckList[-1]
-        # as file, return file. Otherwise, return filename str
-        with tempfile.NamedTemporaryFile(mode=mode, suffix=extension, delete=False) as f:
-            if as_file:
-                yield f
-            else:
-                yield f.name
-        # rename the temp file to final output file name
-        print(f.name)
-        print(file)
-        os.rename(f.name,file)
-        # change the flag to True since the process has been succeeded
-        convertSuccess = True
-        print("conversion success!!")
-    # finally, the temp file has to be removed if the conversion process has been failed.
-    finally:
-        # if the conversion has been failed
-        if convertSuccess == False:
-            # remove the incomplete temp files
-            f.close()
-            os.path.exists(f.name) and os.remove(f.name)
-            # os.path.exists(f) and os.remove(f)
-            print("temp file removed!")
-
+def atomic_write(file, mode="w", as_file=True, **kwargs):
     """Write a file atomically
 
     :param file: str or :class:`os.PathLike` target to write
-    :param mode: the mode in which the file is opened, defaults to "w" (writing in text mode)
+
     :param bool as_file:  if True, the yielded object is a :class:File.
         (eg, what you get with `open(...)`).  Otherwise, it will be the
         temporary file path string
@@ -60,4 +23,31 @@ def atomic_write(
             f.write("world!")
 
     """
-    # raise NotImplementedError()
+    if os.path.exists(file):
+        raise FileExistsError
+
+    # initialize flag variable with default set to False, if write is successful will change to True
+    write_successful = False
+    try:
+        filename, file_extension = os.path.splitext(file)
+        # Uses tempfile module to create temporary file
+        # Default temporary file folders have to be on same filesystem for rename operation to be atomic
+        with tempfile.NamedTemporaryFile(
+            mode=mode, suffix=file_extension, delete=False
+        ) as fo:
+            if as_file:
+                yield fo
+            else:
+                yield fo.name
+
+        # rename temp to target and change flag to True if write operation completed successfully
+        os.rename(fo.name, file)
+        write_successful = True
+
+    finally:
+        # Delete temporary and target file if writing code fails
+        if not write_successful:
+            if os.path.exists(fo.name):
+                os.remove(fo.name)
+            if os.path.exists(file):
+                os.remove(file)
