@@ -51,3 +51,4 @@ def get_user_id(username: str) -> str:
     salt = get_salt()
     # compute and return hash digest of input
     return hash_str(username.lower(), salt=salt).hex()[:8]
+
