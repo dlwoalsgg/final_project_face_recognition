@@ -3,14 +3,19 @@ from hashlib import sha256
 import os
 
 
-def get_csci_salt() -> bytes:
-    """Returns the appropriate salt for CSCI E-29"""
-    # retrieve os environment variable called CSCI_SALT
-    # SALT = os.environ["CSCI_SALT"]
+def get_salt() -> bytes:
+    # You may consider to add in .env to secure your salt code or travis
     SALT = "3f87b3a5b7e48ba408964366a7194789249d4ed33b962a9e5d76c5d6122237bc"
 
     # convert hexadecimal salt to bytes equivalent and return those bytes
     return bytes.fromhex(SALT)
+
+
+## May consider to add salt in .env file
+    # SALT = os.environ["SALT_HERE_ENV"]
+    #
+    # # convert hexadecimal salt to bytes equivalent and return those bytes
+    # return bytes.fromhex(SALT)
 
 
 def hash_str(some_val: AnyStr, salt: AnyStr = ""):
@@ -43,6 +48,6 @@ def get_user_id(username: str) -> str:
     :return: first 8 chars in hex format of hash digest of input
     """
     # retrieve salt from environment variables
-    salt = get_csci_salt()
+    salt = get_salt()
     # compute and return hash digest of input
     return hash_str(username.lower(), salt=salt).hex()[:8]
