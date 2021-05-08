@@ -1,4 +1,3 @@
-"""Main module."""
 import cv2
 import dlib
 
@@ -197,6 +196,7 @@ else:
     cummDF2 = cummDF.append(currDF, ignore_index=True)
     with atomic_write(data_source, as_file=False, mode="wb") as tf:
         cummDF2.to_csv(tf, index=None)
+
 
 
 
