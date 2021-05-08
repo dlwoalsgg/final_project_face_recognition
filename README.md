@@ -25,7 +25,7 @@ Workflow:
 
 6. Sort age lists (example sorted age: [37,37,35,35,34,34,34........27,27,26,26,26,24] )
 
-7. Only use age list 10:20 (excluded 1~9 and 20~30), then find average of predicted age
+7. Only use age list 10:20 (excluded 1 to 9 and 20 to 30), then find average of predicted age
 
 8. Save hashed name, real age, predicted age, difference between age and real age and recommended Ingredient for user treatment (ex ingredient A or B) to output.csv
 
