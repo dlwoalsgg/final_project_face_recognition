@@ -45,6 +45,7 @@ Guide
 
    readme
    installation
+   modules
    usage
    modules
    contributing
