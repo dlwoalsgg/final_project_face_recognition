@@ -1,16 +1,13 @@
-final\_project\_face\_recognition package
-=========================================
+final project face recognition package
+=======================================
 
 Subpackages
 -----------
 
 .. toctree::
 
-    final_project_face_recognition.data
     final_project_face_recognition.utils
 
-Submodules
-----------
 
 final\_project\_face\_recognition.cli module
 --------------------------------------------

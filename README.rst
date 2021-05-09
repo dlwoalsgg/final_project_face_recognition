@@ -32,7 +32,17 @@ detect face age and gender and then recommend ingredients
 Features
 --------
 
-* TODO
+* hash name to save
+
+* Open Live Video
+
+* Detect predicted gender
+
+* predicted age
+
+* gap b/w predicted age and real age
+
+* Ingredients made decision by input and output data
 
 Credits
 -------

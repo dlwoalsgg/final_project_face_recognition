@@ -1,4 +1,4 @@
-final\_project\_face\_recognition.utils package
+final project face recognition.utils package
 ===============================================
 
 Submodules
@@ -6,6 +6,8 @@ Submodules
 
 final\_project\_face\_recognition.utils.hash module
 ---------------------------------------------------
+
+Note: You may change hash and save in .env or travis
 
 .. automodule:: final_project_face_recognition.utils.hash
     :members:

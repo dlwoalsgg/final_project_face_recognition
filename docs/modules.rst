@@ -5,5 +5,3 @@ final_project_face_recognition
    :maxdepth: 4
 
    final_project_face_recognition
-   setup
-   tests
