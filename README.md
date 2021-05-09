@@ -4,6 +4,8 @@ The documentation for this project is available here:
 
 https://final-project-face-recognition.readthedocs.io/en/latest/?version=latest
 
+[![Documentation Status](https://readthedocs.org/projects/final-project-face-recognition/badge/?version=latest)](https://final-project-face-recognition.readthedocs.io/en/latest/?badge=latest)
+
 [![Build Status](https://travis-ci.com/dlwoalsgg/final_project_face_recognition.svg?branch=main)](https://travis-ci.com/dlwoalsgg/final_project_face_recognition)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/26bc0db340ad87ec9500/maintainability)](https://codeclimate.com/github/dlwoalsgg/final_project_face_recognition/maintainability)
