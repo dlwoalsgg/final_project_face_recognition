@@ -1,5 +1,9 @@
+==========
+Background
+==========
+
 ==============================
-final_project_face_recognition
+final project face recognition
 ==============================
 
 
