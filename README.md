@@ -6,7 +6,7 @@ Preparation: After Download Large File Following Below, and Run it. Otherwise Tr
 
 https://www.dropbox.com/sh/udxkj8udbc2z9wp/AAAWcpLN7s-VJ1Im1CN5Rme6a?dl=0
 
-File Directory: final_project_face_recognition/ <<Downloaded File HERE>
+File Directory: final_project_face_recognition/age_prediction_data(Downloaded File HERE)
 
 Add any badges to your ***published documentation*** up here!
 
