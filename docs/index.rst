@@ -1,59 +1,45 @@
 Detect Age and Gender to create personalized formulation
 ========================================================
 
+.. image:: https://img.shields.io/travis/dlwoalsgg/final_project_face_recognition.svg
+        :target: https://travis-ci.com/dlwoalsgg/final_project_face_recognition
 
-face recognition: Age and Gender
-================================
+.. image:: https://readthedocs.org/projects/final-project-face-recognition/badge/?version=latest
+        :target: https://final-project-face-recognition.readthedocs.io/en/latest/?version=latest
+        :alt: Documentation Status
 
-Preparation: Download Large file following below.
+.. image:: https://api.codeclimate.com/v1/badges/26bc0db340ad87ec9500/maintainability
+   :target: https://codeclimate.com/github/dlwoalsgg/final_project_face_recognition/maintainability
+   :alt: Maintainability
+
+.. image:: https://api.codeclimate.com/v1/badges/26bc0db340ad87ec9500/test_coverage
+   :target: https://codeclimate.com/github/dlwoalsgg/final_project_face_recognition/test_coverage
+   :alt: Test Coverage
+
+.. image:: https://lh3.googleusercontent.com/proxy/jpKnRa2n2ZLvhC6Q2iZZ54QpmkRmjWpyWy0o6yTq3X5CqygObWS1l0USLnOcCmGQixcgxz3eIqeCjK_kaozQoLqVMIAn2kJTEhriPEY-8M2qsUgZ_f7xtTtiQw
+  :width: 800
+  :alt: File Dicrectory
+
+Preparation:
+^^^^^^^^^^^^
+
+Download Large file following below.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 https://www.dropbox.com/sh/udxkj8udbc2z9wp/AAAWcpLN7s-VJ1Im1CN5Rme6a?dl=0
 
 File Directory: final_project_face_recognition/ <<Downloaded File HERE>
 
 
-Workflow:
-
-1. Run prepared deepl earning files (path: final_project_face_recognition/final_project_face_recognition.py)
-
-2. Type First name, Last name and Age
-
-3. Computer live cam video open
-
-4. Detect predicted age with accuracy, predicted gender with accuracy and difference between predicted age and real age
-
-5. After predicting 30 frame of video picture automatically turn off live cam video
-
-6. Sort age lists (example sorted age: [37,37,35,35,34,34,34........27,27,26,26,26,24] )
-
-7. Only use age list 10:20 (excluded 1~9 and 20~30), then find average of predicted age
-
-8. Save hashed name, real age, predicted age, difference between age and real age and recommended Ingredient for user treatment (ex ingredient A or B) to output.csv
-
-9. Atomically save file to outputCumm.csv (When new user run again, data keep appended)
-
-Note:
-
-- output.csv: save currently run file only
-
-- outputCumm.csv: keep append data from output.csv information
-
-
-    print 'hello'
-    >> hello
-
-Guide
-^^^^^
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   readme
+   Background
+   Workflow
    installation
    modules
    usage
-   modules
    contributing
    authors
    history
