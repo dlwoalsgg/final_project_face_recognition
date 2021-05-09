@@ -1,26 +1,26 @@
-# Config file for automatic testing at travis-ci.com
 
+# Config file for automatic testing at travis-ci.org
 language: python
 python:
   - 3.8
 
-# Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
+before_install:
+  - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
+install:
+  - pipenv install --dev --ignore-pipfile --deploy
 
-# Command to run tests, e.g. python setup.py test
-script: tox
+before_script: # code coverage tool
+   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+   - chmod +x ./cc-test-reporter
+   - ./cc-test-reporter before-build
+script:
+  -
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
-# Assuming you have installed the travis-ci CLI tool, after you
-# create the Github repo and add it to Travis, run the
-# following command to finish PyPI deployment setup:
-# $ travis encrypt --add deploy.password
 deploy:
-  provider: pypi
-  distributions: sdist bdist_wheel
-  user: dlwoalsgg
-  password:
-    secure: PLEASE_REPLACE_ME
+  skip_cleanup: true
   on:
-    tags: true
-    repo: dlwoalsgg/final_project_face_recognition
-    python: 3.8
+    branch: master
+  provider: script
+  script: pipenv run python -m final_project_face_recognition/utils
