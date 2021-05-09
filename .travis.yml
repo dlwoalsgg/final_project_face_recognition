@@ -1,11 +1,8 @@
-
 # Config file for automatic testing at travis-ci.org
 language: python
 python:
   - 3.8
 
-before_install:
-  - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
 install:
   - pipenv install --dev --ignore-pipfile --deploy
 
@@ -14,7 +11,7 @@ before_script: # code coverage tool
    - chmod +x ./cc-test-reporter
    - ./cc-test-reporter before-build
 script:
-  -
+  - pytest --cov-report xml --cov-report term
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
@@ -23,4 +20,9 @@ deploy:
   on:
     branch: master
   provider: script
-  script: pipenv run python -m final_project_face_recognition/utils/
+  # Before running, get the data from s3 using the secret
+  # credentials entered at https://travis-ci.com/csci-e-29/YOUR_PSET_REPO_NAME/settings
+  # DO NOT commit these variables to git.
+  script:
+  - make data
+  - pipenv run python -m final_project_face_recognition/utils/
