@@ -1,6 +1,12 @@
 # Final Project
 
 
+[![Build Status](https://travis-ci.com/dlwoalsgg/final_project_face_recognition.svg?branch=main)](https://travis-ci.com/dlwoalsgg/final_project_face_recognition)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/26bc0db340ad87ec9500/maintainability)](https://codeclimate.com/github/dlwoalsgg/final_project_face_recognition/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/26bc0db340ad87ec9500/test_coverage)](https://codeclimate.com/github/dlwoalsgg/final_project_face_recognition/test_coverage)
+
 Preparation: After Download Large File Following Below, and Run it. Otherwise Travis, Codeclimate and program will fail.
 ===========================================================================================================
 
