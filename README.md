@@ -1,23 +1,18 @@
 # Final Project
 
 
+Preparation: After Download Large File Following Below, and Run it. Otherwise Travis, Codeclimate and program will fail.
+===========================================================================================================
+
+https://www.dropbox.com/sh/udxkj8udbc2z9wp/AAAWcpLN7s-VJ1Im1CN5Rme6a?dl=0
+
+File Directory: final_project_face_recognition/ <<Downloaded File HERE>
+
 Add any badges to your ***published documentation*** up here!
 
 
 Detect Age and Gender to create personalized formulation
 ========================================================
-
-
-face recognition: Age and Gender
-================================
-
-<p align="center">
-  <img src="https://www.dropbox.com/home/face_recog_github_pic?preview=directory_deeplearning.png" width="350" title="hover text">
-</p>
-
-
-![alt text](https://www.dropbox.com/home/face_recog_github_pic?preview=directory_deeplearning.png)
-
 
 
 Workflow:
