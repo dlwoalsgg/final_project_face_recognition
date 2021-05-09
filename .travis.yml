@@ -16,13 +16,26 @@ after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 deploy:
-  skip_cleanup: true
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: dlwoalsgg
+  password:
+    secure: PLEASE_REPLACE_ME
   on:
-    branch: master
-  provider: script
-  # Before running, get the data from s3 using the secret
-  # credentials entered at https://travis-ci.com/csci-e-29/YOUR_PSET_REPO_NAME/settings
-  # DO NOT commit these variables to git.
+    tags: true
+    repo: dlwoalsgg/final_project_face_recognition
+    python: 3.8
+
+
+#deploy:
+#  skip_cleanup: true
+#  on:
+#    branch: master
+#  provider: script
+#  # Before running, get the data from s3 using the secret
+#  # credentials entered at https://travis-ci.com/csci-e-29/YOUR_PSET_REPO_NAME/settings
+#  # DO NOT commit these variables to git.
   script:
   - make data
   - pipenv run python -m final_project_face_recognition/utils/
+
