@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-pip==19.2.3
-=======
 pip==21.1.1
->>>>>>> test1
 bump2version==0.5.11
 wheel==0.33.6
 watchdog==0.9.0
@@ -11,18 +7,13 @@ tox==3.14.0
 coverage==4.5.4
 Sphinx==1.8.5
 twine==1.14.0
-<<<<<<< HEAD
 
 pytest==4.6.5
 pytest-runner==5.1
-=======
+pytest-cov==2.11.1
 botocore==1.20.65
 s3fs==2021.4.0
 boto3==1.17.64
 moto==2.0.6
 cmake==3.18.4
 dlib==19.22.0
-
-pytest==4.6.5
-pytest-runner==5.1
->>>>>>> test1
