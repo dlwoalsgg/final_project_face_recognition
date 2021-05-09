@@ -1,5 +1,8 @@
 # Final Project
 
+The documentation for this project is available here:
+
+https://final-project-face-recognition.readthedocs.io/en/latest/?version=latest
 
 [![Build Status](https://travis-ci.com/dlwoalsgg/final_project_face_recognition.svg?branch=main)](https://travis-ci.com/dlwoalsgg/final_project_face_recognition)
 
