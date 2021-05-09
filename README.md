@@ -11,6 +11,15 @@ Detect Age and Gender to create personalized formulation
 face recognition: Age and Gender
 ================================
 
+<p align="center">
+  <img src="https://www.dropbox.com/home/face_recog_github_pic?preview=directory_deeplearning.png" width="350" title="hover text">
+</p>
+
+
+![alt text](https://www.dropbox.com/home/face_recog_github_pic?preview=directory_deeplearning.png)
+
+
+
 Workflow:
 
 1. Run prepared deepl earning files (path: final_project_face_recognition/final_project_face_recognition.py)
