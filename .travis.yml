@@ -23,4 +23,4 @@ deploy:
   on:
     branch: master
   provider: script
-  script: pipenv run python -m final_project_face_recognition/utils
+  script: pipenv run python -m final_project_face_recognition/utils/
