@@ -115,6 +115,12 @@ If you want to quit the program before 30 frame, click "q" button.)
 8. Save hashed name, real age, predicted age, difference between age and real age and recommended Ingredient for user treatment (ex ingredient A or B) to output.csv
 (saved data path: final_project_face_recogntion / data / )
 
+Note:
+
+- output.csv: save currently run file only
+
+- outputCumm.csv: atomically save and keep append data from output.csv information
+
 .. image:: https://usister.com/usister_uploads/2021/05/Screen-Shot-2021-05-11-at-9.41.09-PM.png
   :width: 800
   :alt: File Dicrectory
@@ -123,14 +129,14 @@ If you want to quit the program before 30 frame, click "q" button.)
   :width: 800
   :alt: File Dicrectory
 
-- output.csv: save currently run file only
-
-- outputCumm.csv: atomically save and keep append data from output.csv information
-
 
 9. Atomically save file to outputCumm.csv (When new user run again, data keep appended)
 
 Note:
+
+- output.csv: save currently run file only
+
+- outputCumm.csv: atomically save and keep append data from output.csv information
 
 .. image:: https://usister.com/usister_uploads/2021/05/Screen-Shot-2021-05-11-at-9.43.22-PM.png
   :width: 800
@@ -139,8 +145,3 @@ Note:
 .. image:: https://usister.com/usister_uploads/2021/05/Screen-Shot-2021-05-11-at-9.41.25-PM.png
   :width: 800
   :alt: File Dicrectory
-
-
-- output.csv: save currently run file only
-
-- outputCumm.csv: atomically save and keep append data from output.csv information
