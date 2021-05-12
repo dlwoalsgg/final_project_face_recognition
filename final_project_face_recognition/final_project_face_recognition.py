@@ -125,7 +125,7 @@ while cap.isOpened():
 
 
             cv2.imshow('frame', read_frame)
-            if frameCount ==30:
+            if frameCount == 30:
                 break
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break

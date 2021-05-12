@@ -16,9 +16,6 @@ Detect Age and Gender to create personalized formulation
    :target: https://codeclimate.com/github/dlwoalsgg/final_project_face_recognition/test_coverage
    :alt: Test Coverage
 
-.. image:: https://lh3.googleusercontent.com/proxy/jpKnRa2n2ZLvhC6Q2iZZ54QpmkRmjWpyWy0o6yTq3X5CqygObWS1l0USLnOcCmGQixcgxz3eIqeCjK_kaozQoLqVMIAn2kJTEhriPEY-8M2qsUgZ_f7xtTtiQw
-  :width: 800
-  :alt: File Dicrectory
 
 Preparation:
 ^^^^^^^^^^^^
@@ -29,6 +26,10 @@ Download Large file following below.
 https://www.dropbox.com/sh/udxkj8udbc2z9wp/AAAWcpLN7s-VJ1Im1CN5Rme6a?dl=0
 
 File Directory: final_project_face_recognition/ <<Downloaded File HERE>
+
+.. image:: https://usister.com/usister_uploads/2021/05/directory_deeplearning.png
+  :width: 800
+  :alt: File Dicrectory
 
 
 .. toctree::
