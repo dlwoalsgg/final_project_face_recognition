@@ -16,6 +16,9 @@ Detect Age and Gender to create personalized formulation
    :target: https://codeclimate.com/github/dlwoalsgg/final_project_face_recognition/test_coverage
    :alt: Test Coverage
 
+.. image:: https://usister.com/usister_uploads/2021/05/face_detection.gif
+  :width: 800
+  :alt: File Dicrectory
 
 Preparation:
 ^^^^^^^^^^^^
