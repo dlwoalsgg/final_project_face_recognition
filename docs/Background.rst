@@ -29,12 +29,27 @@ Solution:
 
 Based on customers predicted gender, predicted age and real age (Variables), you can make personalized formulation cosmetics and healthcare supplement output.
 
-You may want to add more variables such as scent preference and/or allergies.
+Instead of making one size fit all model, our goal is individually approach to unique customers.
 
-Feel free to edit, modify, exclude and/or add functions as you wish.
 
-Features
+Future Expansion:
+^^^^^^^^^^^^^^^^^
+
+.. image:: https://www.genengnews.com/wp-content/uploads/2018/08/August11_2015_istock67332915_illustrationDNAtarget1634812962-1.jpg
+  :width: 800
+  :alt: Personalization picture
+
+Will be added more variables such as scent preference and/or allergies. Possibly billion formulation will be created.
+
+Will adopt DNA information in the future to predict batter.
+
+
+Features:
 ^^^^^^^^
+
+.. image:: https://www.salesforce.com/content/dam/blogs/ca/Infographics/hidden-social-media-features-open-graph.jpg
+  :width: 800
+  :alt: Personalization picture
 
 * hash name to save
 
@@ -52,4 +67,4 @@ Features
 
 * auto save user output to CSV file.
     - output.csv: Temporally save information. Overwrap output.
-    - outputCumm.csv: Keep previous data and append new information (output)
+    - outputCumm.csv: Keep previous data and atomically append and save new information (output)

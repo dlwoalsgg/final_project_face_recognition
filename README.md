@@ -15,7 +15,7 @@ https://final-project-face-recognition.readthedocs.io/en/latest/?version=latest
 [![Test Coverage](https://api.codeclimate.com/v1/badges/26bc0db340ad87ec9500/test_coverage)](https://codeclimate.com/github/dlwoalsgg/final_project_face_recognition/test_coverage)
 
 
-![alt text](https://usister.com/usister_uploads/2021/05/face_detection.gif)
+![alt text](https://usister.com/usister_uploads/2021/05/face_detect_full.gif)
 
 
 Preparation: After Download Large File Following Below, and Run it. Otherwise Travis, Codeclimate and program will fail.

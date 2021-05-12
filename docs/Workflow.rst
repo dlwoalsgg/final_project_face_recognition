@@ -36,7 +36,7 @@ Workflow:
 
 2. Type First name, Last name and Age on pycharm or similar program
 
-.. image:: https://usister.com/usister_uploads/2021/05/Screen-Shot-2021-05-11-at-4.40.46-PM.png
+.. image:: https://usister.com/usister_uploads/2021/05/face_detection.gif
   :width: 800
   :alt: Type name and age
 
